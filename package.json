@@ -1,0 +1,29 @@
+{
+  "name": "get-voucher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "index": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/lodash": "^4.17.0",
+    "axios": "^1.6.7",
+    "dotenv": "^16.4.5",
+    "fast-xml-parser": "^4.3.5",
+    "fastify": "^4.26.2",
+    "fs": "^0.0.1-security",
+    "html-pdf-node": "^1.0.8",
+    "lodash": "^4.17.21",
+    "query-string": "^9.0.0",
+    "querystring": "^0.2.1",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

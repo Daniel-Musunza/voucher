@@ -34,7 +34,7 @@ h2,h3{
 }
 
 .hero-part1 {
-    height: 150px;
+    height: 100px;
     display: flex;
     position: relative;
 }

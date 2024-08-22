@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
         holiday: {
             destination: "MARRAKECH",
             country: "MOROCCO",
-            coverImage: "images/firstimage.jpg",
+            coverImage: "https://www.shutterstock.com/image-photo/panorama-beautiful-countryside-romania-sunny-600nw-1302294157.jpg",
             airlineLogo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwdR7uR0JPwGXJbyhI1_rCmgHhWyE32mVUUA&s",
             holidayReferece: "6062974",
             flightReference: "K7W5V28",

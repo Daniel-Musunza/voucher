@@ -17,7 +17,7 @@
                 <div class="hero-part1">
                     <div class="destination-info">
                         <p>YOU ARE GOING TO</p>
-                        <h1>MARRAKECH, MOROCCO</h1>
+                        <h1 id="destinationAndCountry"></h1>
                     </div>
 
                     <div class="blank-part">
@@ -30,17 +30,14 @@
                     <div class="references">
                         <div class="one-reference">
                             <p>Holiday reference</p>
-                            <p class="reference">6062974</p>
+                            <p class="reference" id="holidayReference"></p>
                         </div>
                         <div class="one-reference">
                             <p>Flight reference</p>
-                            <p class="reference">K7W5V28</p>
+                            <p class="reference" id="flightReference"></p>
                         </div>
                     </div>
-                    <div class="branding">
-                        <img class="logo1"
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwdR7uR0JPwGXJbyhI1_rCmgHhWyE32mVUUA&s"
-                            alt="ABTA Logo">
+                    <div class="branding" id="branding">
                         <img class="logo2"
                             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6sEWTJFzoYkFLSWXgNKtBjDI79dya-RX2XA&s"
                             alt="ABTA Logo">
@@ -51,29 +48,12 @@
 
             <h2>YOUR HOLIDAY SUMMARY</h2>
             <div>
-                <div class="gallery">
-                    <div class="gallery-first-image">
-                        <img src="https://www.i-escape.com/gallery/252001_253000/252601_252700/252677_840x540.jpg"
-                            alt="Hotel">
-
+                <div class="gallery" id="gallery">
+                    <div class="gallery-first-image" id="gallery-first-image">
+                        
                     </div>
-                    <div class="other-images">
-                        <div class="gallery-image">
-                            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/df/59/4b/dar-zemora.jpg?w=700&h=-1&s=1"
-                                alt="Hotel">
-                        </div>
-                        <div class="gallery-image">
-                            <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/575306044.jpg?k=35784defb18ac03f14d374e88ccf22beca297ecc26d84cf1ae0fbb84720235e4&o=&hp=1"
-                                alt="Hotel">
-                        </div>
-                        <div class="gallery-image">
-                            <img src="https://pix10.agoda.net/hotelImages/233/233840/233840_121227184850139.jpg?ca=0&ce=1&s=312x235&ar=16x9"
-                                alt="Hotel">
-                        </div>
-                        <div class="gallery-image">
-                            <img src="https://media-cdn.tripadvisor.com/media/photo-s/15/66/c1/a0/dar-zemora.jpg"
-                                alt="Hotel">
-                        </div>
+                    <div class="other-images" id="other-images">
+                        
                     </div>
                 </div>
 
@@ -81,50 +61,42 @@
                     <div class="hotel-info">
 
                         <div class="details">
-                            <h3>Diwane Marrakech</h3>
-                            <p><a href="#">Marrakech City, Marrakech, Morocco</a></p>
+                            <h3 id="hotelName"></h3>
+                            <p><a href="#" id="cityDestinationCountry"></a></p>
                             <div class="reviews">
-                                <span>★★★★☆</span>
-                                <span>1,551 reviews</span>
+                                <span id="stars"></span>
+                                <span id="reviews"></span>
                             </div>
                             <hr />
                             <div class="booking-info">
-                                <p><i class="fa fa-user"></i> 1 adult</p>
+                                <p ><i class="fa fa-user"></i> <span id="persons"></span></p>
                                 <hr />
-                                <p><i class="fa fa-calendar"></i> From Mon 09 Sep - Thu 12 Sep 2024, 3 nights</p>
+                                <p><i class="fa fa-calendar"></i> <span id="holidayDates"></span> </p>
                                 <hr />
-                                <p><i class="fa fa-cutlery"></i> Half Board</p>
+                                <p><i class="fa fa-cutlery"></i> <span id="boardType"></span></p>
 
                             </div>
                         </div>
                     </div>
                     <div class="amenities">
                         <h3>All Facilities & Amenities at the Hotel</h3>
-                        <div class="amenity-categories">
+                        <div class="amenity-categories" >
                             <div>
                                 <h4><i class="fa-solid fa-city"></i>General</h4>
-                                <ul>
-                                    <li>Air conditioning</li>
-                                    <li>Concierge</li>
-                                    <li>Gym</li>
-                                    <li>Currency exchange facilities</li>
+                                <ul id="g-amenities">
+                                  
                                 </ul>
                             </div>
                             <div>
                                 <h4><i class="fa-solid fa-tv"></i>Entertainment</h4>
-                                <ul>
-                                    <li>Children's pool</li>
-                                    <li>Entertainment programme</li>
-                                    <li>Outdoor pool</li>
-                                    <li>TV lounge</li>
+                                <ul id="e-amenities">
+                                 
                                 </ul>
                             </div>
                             <div>
                                 <h4><i class="fa-solid fa-utensils"></i>Food & Drink</h4>
-                                <ul>
-                                    <li>Bar</li>
-                                    <li>Poolside snack bar</li>
-                                    <li>Restaurant</li>
+                                <ul id="fd-amenities">
+                                    
                                 </ul>
                             </div>
                         </div>
@@ -135,13 +107,13 @@
             <div class="holiday-summary">
                 <div class="cost-summary">
                     <h2>COST OF YOUR HOLIDAY</h2>
-                    <div class="cost-item">
-                        <p>Holiday</p>
-                        <p>£416.59</p>
+                    <div id="costItems">
+                       
                     </div>
-                    <div class="total">
+                    
+                    <div class="total" >
                         <p>Total</p>
-                        <p>£416.59</p>
+                        <p id="totalCost"></p>
                     </div>
                 </div>
 
@@ -155,23 +127,23 @@
                                 <div class="f-part1">
                                     <i class="fa-solid fa-plane-departure"></i>
                                     <div class="flight-date">
-                                        <div class="date">
-                                            Mon 9th Sep 2024
+                                        <div class="date" id="outboundDepartureDate">
+                                       
                                         </div>
-                                        <div class="ticket-number">
-                                            EZY2265
+                                        <div class="ticket-number" id="outboundReference">
+                                      
                                         </div>
                                     </div>
                                 </div>
                                 <div class="f-part2">
                                     <div class="flight-time">
-                                        <b>06:25</b>
-                                        <p>Manchester (MAN)</p>
+                                        <b id="outboundDepartureTime"></b>
+                                        <p id="outboundFrom"></p>
                                     </div>
                                     <div class="flight-divider">..........</div>
                                     <div class="flight-time">
-                                        <b>10:20</b>
-                                        <p>Marrakech (RAK)</p>
+                                        <b id="outboundArrivalTime"></b>
+                                        <p id="outboundTo"></p>
                                     </div>
                                 </div>
 
@@ -181,23 +153,23 @@
                                 <div class="f-part1">
                                     <i class="fa-solid fa-plane-departure"></i>
                                     <div class="flight-date">
-                                        <div class="date">
-                                            Thu 12th Sep 2024
+                                        <div class="date" id="returnDepartureDate">
+                                
                                         </div>
-                                        <div class="ticket-number">
-                                            TZY6765
+                                        <div class="ticket-number" id="returnReference">
+                                         
                                         </div>
                                     </div>
                                 </div>
                                 <div class="f-part2">
                                     <div class="flight-time">
-                                        <b>13:05</b>
-                                        <p>Marrakech (RAK)</p>
+                                        <b id="returnDepartureTime"></b>
+                                        <p id="returnFrom"></p>
                                     </div>
                                     <div class="flight-divider">..........</div>
                                     <div class="flight-time">
-                                        <b>16:45</b>
-                                        <p>Manchester (MAN)</p>
+                                        <b id="returnArrivalTime"></b>
+                                        <p id="returnTo"></p>
                                     </div>
                                 </div>
                             </div>
@@ -219,17 +191,8 @@
                                 </div>
                             </div>
                             <hr />
-                            <div class="seat-info-part2">
-                                <div class="name">
-                                    <i class="fa fa-user"></i>
-                                    Ms Gerramie Gabo Castro
-                                </div>
-                                <div class="outbound">
-                                    <p><span class="seat-number">16F</span> Rear Standard</p>
-                                </div>
-                                <div class="return">
-                                    <p><span class="seat-number">16A</span> Rear Standard</p>
-                                </div>
+                            <div class="seat-info-part2" id="passegersSeats">
+                               
                             </div>
 
                         </div>
@@ -248,19 +211,8 @@
 
                     </div>
                     <hr />
-                    <div class="travel-details-flex">
-                        <div class="travel-passenger">
-                            <p>
-                                <i class="fa fa-user"></i>
-                                Ms Gerramie Gabo Castro
-                            </p>
-                        </div>
-                        <div class="travel-bags">
-                            <p><i class="fa-solid fa-suitcase-rolling"><span class="travel-icon1">✔️</span></i></span>
-                                Small under seat bag (included)</p>
-                            <p><i class="fa-solid fa-suitcase-rolling"><span class="travel-icon2">❌</span></i> No large
-                                over head cabin bag</p>
-                        </div>
+                    <div class="travel-details-flex" id="cabinBagsInstructions">
+                       
                     </div>
                 </div>
 
@@ -270,7 +222,7 @@
                     <div class="laggage">
                         <i class="fa-solid fa-plane-departure"></i>
 
-                        <p>1 item</p>
+                        <p > <span id="laggages1"></span> item</p>
 
                     </div>
                     <hr />
@@ -282,7 +234,7 @@
 
                         </div>
                         <div class="travel-luggage">
-                            <p>1 x 23kg hold bag</p>
+                            <p><span id="laggages2"></span> x 23kg hold bag</p>
                             <p>Maximum 23kg per bag, stored in the plane hold. Outbound and return.</p>
                         </div>
                     </div>
@@ -294,7 +246,7 @@
                     <div class="travel-details-flex">
                         <span class="travel-icon"><i class="fa-solid fa-bus-simple"></i></span>
                         <div class="travel-transfer-info">
-                            <h3> Shared - Shuttle standard bus, 1 seat</h3>
+                            <h3> Shared - Shuttle standard bus, <span id="transfer-p" style="padding: 0 5px;"></span>  seat</h3>
                             <ul><li>A shared transfer will take you and others to and from your hotel along a planned route.
                                 As they run to a schedule, you may have to wait up to an hour before your transfer
                                 departs, but once on board there will be no more than 8 stops.
@@ -311,20 +263,18 @@
                     <div class="travel-details-flex room-board">
                         <div class="travel-room">
                             <span class="travel-icon"><i class="fa-solid fa-bed"></i></span>
-                            <div class="room-items">
-                                <p> SINGLE SUPERIOR</p>
-                                <p>for 1 person</p>
+                            <div class="room-items" id="roomType">
+                               
                             </div>
                         </div>
 
                         <hr />
                         <div class="travel-board">
                             <span class="travel-icon"><i class="fa">🍽️</i></span>
-                            <div class="board-items">
-                                <p> Half Board</p>
-                                <ul>
-                                    <li>Breakfast</li>
-                                    <li>Dinner</li>
+                            <div class="board-items" >
+                                <p id="boardType2"></p>
+                                <ul id="boardIncludes">
+                                  
                                 </ul>
                             </div>
                         </div>
@@ -335,11 +285,8 @@
                 <!-- Passenger Details Section -->
                 <div class="travel-section travel-passenger-details">
                     <h2>PASSENGER DETAILS</h2>
-                    <div class="travel-details-flex">
-                        <div class="travel-passenger">
-                            <p style="margin-top: 0;">   <i class="fa fa-user"></i>  Ms Gerramie Gabo Castro - <span class="travel-lead-passenger">Lead passenger</span></p>
-                            <p style="margin-left: 25px;">Email: dreamlineholidays@hotmail.com</p>
-                        </div>
+                    <div class="travel-details-flex" id="passengers"> 
+                     
                     </div>
                 </div>
 

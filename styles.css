@@ -36,7 +36,6 @@ h2,h3{
 .hero-part1 {
     height: 150px;
     display: flex;
-    background: url('images/firstimage.jpg') no-repeat center center/cover;
     position: relative;
 }
 
@@ -227,10 +226,11 @@ hr {
     font-size: 14px;
 }
 
-.details p {
+.details p  {
     margin: 5px 0;
     color: #d9534f;
     font-size: 12px;
+    
 }
 
 .reviews {
@@ -246,6 +246,8 @@ hr {
 
 .booking-info p {
     margin: 10px 0;
+    display: flex;
+    flex-wrap: nowrap;
 }
 
 .amenities {

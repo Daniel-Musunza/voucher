@@ -17,7 +17,25 @@ fastify.post('/getvoucher', async (request, reply) => {
 
     // return voucherData
     // Generate the voucher HTML content
-    const voucher = gethtml(voucherData);
+    const voucher = gethtml(voucherData).replace(
+      '</head>',
+      `
+      <style>
+        @page:first {
+          margin-top: 0in;
+        }
+        .first-page {
+          margin-top: 0;
+        }
+      </style>
+      </head>`
+    ).replace(
+      '<body>',
+      `<body><div class="first-page">`
+    ).replace(
+      '</body>',
+      '</div></body>'
+    );
 
     // Define a unique filename using UUID
     const filename = `voucher-${uuidv4()}.pdf`;
@@ -33,7 +51,7 @@ fastify.post('/getvoucher', async (request, reply) => {
       format: 'A4',
       printBackground: true,
       margin: {
-        top: '20',
+        top: '0',
         bottom: '20',
       },
     };

@@ -13,8 +13,11 @@ fastify.post('/getvoucher', async (request, reply) => {
   try {
     const payload = request.body;
 
-    const voucherData = JSON.parse(atob(payload.voucherData));
+    // const b64 = btoa(JSON.stringify(payload))
 
+    // return b64
+    const voucherData = JSON.parse(atob(payload.voucherData));
+    // const voucherData = payload;
     // return voucherData
     // Generate the voucher HTML content
     const voucher = gethtml(voucherData).replace(
@@ -66,7 +69,7 @@ fastify.post('/getvoucher', async (request, reply) => {
     return { success: true, filepath };
   } catch (error) {
     console.log(error);
-    return { success: false, error: error.message };
+    return { success: false, error: `There was a problem in generating the voucher. ${error.message}` };
   }
 });
 

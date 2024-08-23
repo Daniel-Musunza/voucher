@@ -1,11 +1,12 @@
 const gethtml = (voucherData) => {
+
     return `
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${voucherData.holiday.holidayDetails.passengers[0].name} Holiday Voucher</title>
+    <title>${voucherData?.category==="holiday" ? voucherData.holiday.holidayDetails.passengers[0].name : voucherData.hotelOnly.hotelBookingDetails.paxes[0].name} Hotel Voucher</title>
     <script src="https://kit.fontawesome.com/332a0bbd7c.js" crossorigin="anonymous"></script>
      <style>
         body {
@@ -628,6 +629,7 @@ margin-top: 0;
 </head>
 
 <body>
+${voucherData?.category==="holiday" ? `
     <div class="main-container">
         <div class="container">
             <div class="hero">
@@ -656,9 +658,12 @@ margin-top: 0;
                     </div>
                     <div class="branding" id="branding">
                     <img class="logo1" src="${voucherData.holiday.airlineLogo}" alt="Airline Logo">
+                    ${voucherData.holiday.atolProtected ? `
                         <img class="logo2"
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6sEWTJFzoYkFLSWXgNKtBjDI79dya-RX2XA&s"
-                            alt="ABTA Logo">
+                             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6sEWTJFzoYkFLSWXgNKtBjDI79dya-RX2XA&s"
+                             alt="ABTA Logo">
+                    ` : ''}
+                    
                     </div>
                 </div>
 
@@ -803,34 +808,8 @@ margin-top: 0;
             </div>
         </div>
     </div>
-
-                    <div class="seats">
-                        <h3>YOUR SEATS</h3>
-                        <div class="seat-info">
-                            <div class="seat-info-part1">
-                                <div class="outbound">
-                                    <i class="fa-solid fa-plane-departure"></i>
-
-                                    <p>Outbound</p>
-                                </div>
-                                <div class="return">
-                                    <i class="fa-solid fa-plane-departure"></i>
-                                    <p>Return</p>
-                                </div>
-                            </div>
-                            <hr />
-                            <div class="seat-info-part2" id="passegersSeats">
-                                 ${voucherData.holiday.holidayDetails.seats.map(seat => `
-            <div class="name"><i class="fa fa-user"></i> ${seat.name}</div>
-            <div class="outbound"><p><span class="seat-number">${seat.outbound.seatNumber}</span> ${seat.outbound.seatType}</p></div>
-            <div class="return"><p><span class="seat-number">${seat.return.seatNumber}</span> ${seat.return.seatType}</p></div>
-        `).join('')}
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+</div>
+  </div>
             <div class="travel-details">
 
                 <!-- Cabin Bags Section -->
@@ -879,12 +858,21 @@ margin-top: 0;
                 </div>
 
                 <!-- Transfer Section -->
+                ${voucherData.holiday?.transferReference ? `
                 <div class="travel-section travel-transfer">
                     <h2>TRANSFER</h2>
                     <div class="travel-details-flex">
                         <span class="travel-icon"><i class="fa-solid fa-bus-simple"></i></span>
                         <div class="travel-transfer-info">
+                          <div style="display: flex; justify-content: space-between; with: 100%; position: relative;">
                             <h3> Shared - Shuttle standard bus, <span id="transfer-p" style="padding: 0 5px;">${voucherData.holiday.holidayDetails.passengers.length}</span>  seat</h3>
+                             <div class="references">
+                                <div class="one-reference">
+                                    <p>Transfer reference</p>
+                                    <p style="font-weight: 700; margin-top: 0">${voucherData.holiday?.transferReference}</p>
+                                </div>
+                             </div>
+                            </div> 
                             <ul><li>A shared transfer will take you and others to and from your hotel along a planned route.
                                 As they run to a schedule, you may have to wait up to an hour before your transfer
                                 departs, but once on board there will be no more than 8 stops.
@@ -894,7 +882,7 @@ margin-top: 0;
                         </div>
                     </div>
                 </div>
-
+` : ``}
                 <!-- Room and Board Section -->
                 <div class="travel-section travel-room-board">
                     <h2>YOUR ROOM AND BOARD</h2>
@@ -943,7 +931,190 @@ margin-top: 0;
 
         </div>
     </div>
+` 
 
+
+
+
+
+: 
+
+
+
+
+
+
+`
+   <div class="main-container">
+        <div class="container">
+            <div class="hero">
+                <div class="hero-part1" style="background: url('${voucherData.hotelOnly.coverImage}') no-repeat center center/cover;">
+                    <div class="destination-info">
+                        <p>YOU ARE GOING TO</p>
+                        <h1 id="destinationAndCountry">${voucherData.hotelOnly.destination}, ${voucherData.hotelOnly.country}</h1>
+                    </div>
+
+                    <div class="blank-part">
+
+                    </div>
+                    <div class="background-below-line"></div>
+                </div>
+
+                <div class="hero-part2">
+                    <div class="references">
+                        <div class="one-reference">
+                            <p>Hotel reference</p>
+                            <p class="reference" id="holidayReference">${voucherData.hotelOnly.hotelReferece}</p>
+                        </div>
+                     
+                    </div>
+                    <div class="branding" id="branding">
+                   
+                    
+                    </div>
+                </div>
+
+            </div>
+
+            <h2>YOUR HOTEL SUMMARY</h2>
+            <div>
+                <div class="gallery" id="gallery">
+                    <div class="gallery-first-image" id="gallery-first-image">
+                         <img class="logo1" src="${voucherData.hotelOnly.hotelDetails.images[0]}" alt="Hotel Image">
+                    </div>
+                    <div class="other-images" id="other-images">
+                         ${voucherData.hotelOnly.hotelDetails.images.slice(1, 5).map((image, index) => `
+            <div class="gallery-image">
+                <img src="${image}" alt="Hotel Image ${index + 1}">
+            </div>
+        `).join('')}
+                    </div>
+                </div>
+
+                <div class="summary">
+                    <div class="hotel-info">
+
+                        <div class="details">
+                            <h3 id="hotelName">${voucherData.hotelOnly.hotelDetails.hotelName}</h3>
+                            <p><a href="#" id="cityDestinationCountry">${voucherData.hotelOnly.hotelDetails.city} city, ${voucherData.hotelOnly.destination}, ${voucherData.hotelOnly.country}</a></p>
+                            <div class="reviews">
+                                <span id="stars">${"★".repeat(voucherData.hotelOnly.hotelDetails.stars)}${"☆".repeat(5 - voucherData.hotelOnly.hotelDetails.stars)} stars</span>
+                                <span id="reviews">${voucherData.hotelOnly.hotelDetails.reviews} reviews</span>
+                            </div>
+                            <hr />
+                            <div class="booking-info">
+                                <p ><i class="fa fa-user"></i> <span id="persons"> ${voucherData.hotelOnly.hotelBookingDetails.paxes.filter(x => x.adult).length} adult(s)
+        ${voucherData.hotelOnly.hotelBookingDetails.paxes.filter(x => !x.adult).length > 0 ? `, ${voucherData.hotelOnly.hotelBookingDetails.paxes.filter(x => !x.adult).length} child(ren)` : ''}
+        </span></p>
+                                <hr />
+                                <p><i class="fa fa-calendar"></i> <span id="holidayDates">From ${voucherData.hotelOnly.hotelBookingDetails.checkInDate} - ${voucherData.hotelOnly.hotelBookingDetails.checkOutDate}, ${voucherData.hotelOnly.hotelBookingDetails.nights} nights</span> </p>
+                                <hr />
+                                <p><i class="fa fa-cutlery"></i> <span id="boardType">${voucherData.hotelOnly.hotelBookingDetails.hotel.board.boardName}</span></p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="amenities">
+                        <h3>All Facilities & Amenities at the Hotel</h3>
+                        <div class="amenity-categories" >
+                            <div>
+                                <h4><i class="fa-solid fa-city"></i>General</h4>
+                                <ul id="g-amenities">
+                                   ${voucherData.hotelOnly.hotelDetails.amenities.general.map(am => `<li>${am}</li>`).join('')}
+                                </ul>
+                            </div>
+                            <div>
+                                <h4><i class="fa-solid fa-tv"></i>Entertainment</h4>
+                                <ul id="e-amenities">
+                                  ${voucherData.hotelOnly.hotelDetails.amenities.entertainment.map(am => `<li>${am}</li>`).join('')}
+                                </ul>
+                            </div>
+                            <div>
+                                <h4><i class="fa-solid fa-utensils"></i>Food & Drink</h4>
+                                <ul id="fd-amenities">
+                                     ${voucherData.hotelOnly.hotelDetails.amenities.foodAndDrinks.map(am => `<li>${am}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="holiday-summary">
+                <div class="cost-summary">
+                    <h2>COST OF YOUR HOTEL</h2>
+                    <div id="costItems">
+                         ${Object.keys(voucherData.hotelOnly.cost.costPerCategory).map(category => `
+            <div class="cost-item">
+                <p>${category.charAt(0).toUpperCase() + category.slice(1)}</p>
+                <p>£${voucherData.hotelOnly.cost.costPerCategory[category].toFixed(2)}</p>
+            </div>
+        `).join('')}
+                    </div>
+                    
+                    <div class="total" >
+                        <p>Total</p>
+                        <p id="totalCost">£${voucherData.hotelOnly.cost.total}</p>
+                    </div>
+                </div>
+
+                <div class="holiday-details">
+                    <h2>HOTEL DETAILS</h2>
+
+</div>
+  </div>
+            <div class="travel-details">
+
+
+                <!-- Room and Board Section -->
+                <div class="travel-section travel-room-board">
+                    <h2>YOUR ROOM AND BOARD</h2>
+                    <div class="travel-details-flex room-board">
+                        <div class="travel-room">
+                            <span class="travel-icon"><i class="fa-solid fa-bed"></i></span>
+                            <div class="room-items" id="roomType">
+                                 ${voucherData.hotelOnly.hotelBookingDetails.hotel.rooms.map(room => `
+            <div>
+                <p>${room.roomName}</p>
+                <p>for ${room.persons} ${room.persons > 1 ? 'persons' : 'person'}</p>
+            </div>
+        `).join('')}
+                            </div>
+                        </div>
+
+                        <hr />
+                        <div class="travel-board">
+                            <span class="travel-icon"><i class="fa">🍽️</i></span>
+                            <div class="board-items" >
+                                <p id="boardType2">${voucherData.hotelOnly.hotelBookingDetails.hotel.board.boardName}</p>
+                                <ul id="boardIncludes">
+                                    ${voucherData.hotelOnly.hotelBookingDetails.hotel.board.includes.map(x => `<li>${x}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Passenger Details Section -->
+                <div class="travel-section travel-passenger-details">
+                    <h2>GUESTS DETAILS</h2>
+                    <div class="travel-details-flex" id="passengers"> 
+                      ${voucherData.hotelOnly.hotelBookingDetails.paxes.map(pax => `
+            <div class="travel-passenger">
+                <p style="margin-top: 0;"><i class="fa fa-user"></i> ${pax.name}${pax.lead ? ' - <span class="travel-lead-passenger">Lead passenger</span>' : ''}</p>
+                <p style="margin-left: 25px;">Email: ${pax.email}</p>
+            </div>
+        `).join('')}
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+`}
 </body>
 </html>
     `;

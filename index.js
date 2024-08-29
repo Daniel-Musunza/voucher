@@ -78,12 +78,14 @@ fastify.post('/getvoucher2', async (request, reply) => {
   try {
     const payload = request.body;
 
-    // const b64 = btoa(JSON.stringify(payload))
+// Convert the payload to a Base64 encoded string using Buffer
+// const b64 = Buffer.from(JSON.stringify(payload)).toString('base64');
 
-    // return b64
-    // const voucherData = JSON.parse(atob(payload.voucherData));
+// return b64;
+
+    const voucherData = JSON.parse(atob(payload.voucherData));
   
-    const voucherData = payload
+    // const voucherData = payload
 
     const voucher = gethtmlVoucher2(voucherData)
 

@@ -6,9 +6,13 @@ import gethtml from './gethtml.js';
 import gethtmlVoucher2 from './gethtmlVoucher2.js';
 import { v4 as uuidv4 } from 'uuid';
 import { generatePdf } from 'html-pdf-node';
+import { uploadToMinio } from "./uploadToMinio.js";
+
 
 config();
 const fastify = Fastify();
+
+const PDF_URL = "https://images.itravelholidays.co.uk"
 
 fastify.post('/getvoucher1', async (request, reply) => {
   try {
@@ -41,16 +45,7 @@ fastify.post('/getvoucher1', async (request, reply) => {
       '</div></body>'
     );
 
-    // Define a unique filename using UUID
-    const filename = `voucher-${uuidv4()}.pdf`;
-
-    // Define the path where the PDF file will be saved
-    const filepath = `./vouchers/${filename}`;
-
-    // Ensure the vouchers directory exists
-    fs.mkdirSync('./vouchers', { recursive: true });
-
-    // PDF generation options
+      // PDF generation options
     const pdfOptions = {
       format: 'A4',
       printBackground: true,
@@ -63,11 +58,24 @@ fastify.post('/getvoucher1', async (request, reply) => {
     // Create PDF from HTML
     const pdfBuffer = await generatePdf({ content: voucher }, pdfOptions);
 
-    // Save the PDF buffer to a file
-    fs.writeFileSync(filepath, pdfBuffer);
+    if (!pdfBuffer) {
+      return { success: false, message: 'Error occurred, try again later' };
+    }
 
-    // Return the file path as a response
-    return { success: true, filepath };
+    // Upload PDF to Minio
+    try {
+      const uploadResult = await uploadToMinio({
+        bucketName: 'vouchers',
+        file: pdfBuffer,
+        folder: 'vouchers1'
+      });
+
+      const filepath = `${PDF_URL}/vouchers/${uploadResult.fileName}`;
+
+      return { success: true, filepath };
+    } catch (error) {
+      return { success: false, error: `PDF upload failed, try again later: ${error.message}` };
+    }
   } catch (error) {
     console.log(error);
     return { success: false, error: `There was a problem in generating the voucher. ${error.message}` };
@@ -78,26 +86,18 @@ fastify.post('/getvoucher2', async (request, reply) => {
   try {
     const payload = request.body;
 
-// Convert the payload to a Base64 encoded string using Buffer
-// const b64 = Buffer.from(JSON.stringify(payload)).toString('base64');
+    // Convert the payload to a Base64 encoded string using Buffer
+    // const b64 = Buffer.from(JSON.stringify(payload)).toString('base64');
 
-// return b64;
+    // return b64;
 
     const voucherData = JSON.parse(atob(payload.voucherData));
-  
+
     // const voucherData = payload
 
     const voucher = gethtmlVoucher2(voucherData)
 
-    // return voucher
-    // Define a unique filename using UUID
-    const filename = `voucher-${uuidv4()}.pdf`;
 
-    // Define the path where the PDF file will be saved
-    const filepath = `./vouchers2/${filename}`;
-
-    // Ensure the vouchers directory exists
-    fs.mkdirSync('./vouchers2', { recursive: true });
 
     // PDF generation options
     const pdfOptions = {
@@ -111,11 +111,26 @@ fastify.post('/getvoucher2', async (request, reply) => {
     // Create PDF from HTML
     const pdfBuffer = await generatePdf({ content: voucher }, pdfOptions);
 
-    // Save the PDF buffer to a file
-    fs.writeFileSync(filepath, pdfBuffer);
+    if (!pdfBuffer) {
+      return { success: false, message: 'Error occurred, try again later' };
+    }
 
-    // Return the file path as a response
-    return { success: true, filepath };
+    // Upload PDF to Minio
+    try {
+      const uploadResult = await uploadToMinio({
+        bucketName: 'vouchers',
+        file: pdfBuffer,
+        folder: 'vouchers2'
+      });
+
+      const filepath = `${PDF_URL}/vouchers/${uploadResult.fileName}`;
+
+      return { success: true, filepath };
+    } catch (error) {
+      return { success: false, error: `PDF upload failed, try again later: ${error.message}` };
+    }
+
+
   } catch (error) {
     console.log(error);
     return { success: false, error: `There was a problem in generating the voucher. ${error.message}` };

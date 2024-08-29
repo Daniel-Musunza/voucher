@@ -19,8 +19,11 @@
     "fs": "^0.0.1-security",
     "html-pdf-node": "^1.0.8",
     "lodash": "^4.17.21",
+    "minio": "^8.0.1",
+    "path": "^0.12.7",
     "query-string": "^9.0.0",
     "querystring": "^0.2.1",
+    "stream": "^0.0.3",
     "uuid": "^9.0.1"
   },
   "devDependencies": {

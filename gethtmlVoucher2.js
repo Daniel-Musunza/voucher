@@ -593,7 +593,7 @@ return `
                 <h3> Terms and conditions</h3>
                 <div class="terms">
 
-                    <p>The terms and conditions applicable to your booking can be found on the easyJet holidays website.
+                    <p>The terms and conditions applicable to your booking can be found on the <a href="https://www.itravelholidays.co.uk/terms">Itravel holidays website </a>.
                         We have not accepted
                         or agreed any deletion, amendment or addition.</p>
                 </div>
@@ -626,20 +626,13 @@ return `
                         from us and your ATOL certificate is included at the end of this document. This lists what is
                         financially protected, where you
                         can get information on what this means for you and who to contact if things go wrong</p>
-                    <p>Residents of the Isle of Man and the Channel Islands are not covered by the CAA ATOL scheme.
-                        Therefore, we have taken
-                        measures to provide insolvency protection with International Passenger Protection Limited (IPP)
-                        to safeguard the financial
-                        interests of these residents. See
-                        https://www.easyjet.com/en/holidays/info/insolvency-protection.</p>
+                  
 
                     <div class="atol-reference">
-                        <img src="https://www.travelbyinspire.co.uk/images/abta_logo_black" alt="" height="50px">
+              
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6sEWTJFzoYkFLSWXgNKtBjDI79dya-RX2XA&s"
                             alt="" height="50px">
-                        <p>easyJet holidays Limited. Registered in England, number 11927917. Registered office: Hangar
-                            89, London Luton Airport,
-                            Luton, Bedfordshire, LU2 9PF</p>
+                        <p>Itravel holidays Limited. Registered in England. Registered office: 396 East Park Road | Leicester | LE5 5HH | United Kingdom</p>
                     </div>
                 </div>
                 <h3>Your bags</h3>
@@ -648,7 +641,7 @@ return `
                     <p> Everyone can bring on board one small cabin bag per person for free, which must fit under the
                         seat in front of you. It can be
                         no bigger than 45 x 36 x 20 cm including wheels and handles.</p>
-                    <p> A standard hold bag, included per person on all easyJet holidays (expect for infants), is up to
+                    <p> A standard hold bag, included per person on all Itravel holidays (expect for infants), is up to
                         23kg. If you’re travelling with
                         family or friends on the same flight and booking, you can pool your total weight allowance. No
                         single item can weigh more

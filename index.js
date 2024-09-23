@@ -91,9 +91,9 @@ fastify.post('/getvoucher2', async (request, reply) => {
 
     // return b64;
 
-    const voucherData = JSON.parse(atob(payload.voucherData));
+    // const voucherData = JSON.parse(atob(payload.voucherData));
 
-    // const voucherData = payload
+    const voucherData = payload
 
     const voucher = gethtmlVoucher2(voucherData)
 

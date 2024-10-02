@@ -527,7 +527,18 @@ const gethtmlVoucher2 = (voucherData) => {
 
                     ` : ""}
 
+     ${voucherData.category === "holiday" ? `
+                <h3> Passport</h3>
+                <div class="passport">
 
+                    <p> It is your responsibility to ensure that your passport is valid for your holiday and that you
+                        meet the criteria for your
+                        destination. Your passport needs to be in good condition and signed, and often valid for a
+                        minimum period beyond your trip,
+                        usually at least three or six months.  Our team are not
+                        able to give advice on specific visa or passport requirements.</p>
+                </div>
+                `: ``}
                 </div>
             </div>
             ${voucherData.category === "holiday" ? `
@@ -628,17 +639,7 @@ const gethtmlVoucher2 = (voucherData) => {
                  
                 </div>
                 ${voucherData.category === "holiday" ? `
-                <h3> Passport</h3>
-                <div class="passport">
-
-                    <p> It is your responsibility to ensure that your passport is valid for your holiday and that you
-                        meet the criteria for your
-                        destination. Your passport needs to be in good condition and signed, and often valid for a
-                        minimum period beyond your trip,
-                        usually at least three or six months.  Our team are not
-                        able to give advice on specific visa or passport requirements.</p>
-                </div>
-                
+              
                 <h3> Terms and conditions</h3>
                 <div class="terms">
 
